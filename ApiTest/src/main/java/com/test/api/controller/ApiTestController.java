@@ -15,7 +15,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.test.api.common.Cfr;
+import com.test.api.common.Cfr2;
 import com.test.api.common.Ocr;
+import com.test.api.common.Speech;
 import com.test.api.common.TextTrans;
 //ajax를 쓸때 requestBody, responseBody 이용!
 
@@ -56,6 +59,39 @@ public class ApiTestController {
 		
 		return "ocrRes";
 	}
+	
+	@GetMapping("/cfr")
+	public String cfrTest(Model model) throws IOException {
+		String path = Path.of(resourceLoader.getResource("classpath:static").getURI()).toString();
+		System.out.println(path);
+		Cfr cfr = new Cfr();
+		String res = cfr.CfrTest(path);
+		
+		model.addAttribute("res",res);
+		return "cfrRes";
+	}
+	
+	@GetMapping("/cfr2")
+	public String cfrTest2(Model model) throws IOException {
+		String path = Path.of(resourceLoader.getResource("classpath:static").getURI()).toString();
+		Cfr2 cfr = new Cfr2();
+		String res = cfr.cfr2(path);
+		
+		model.addAttribute("res",res);
+		return "cfrRes2";
+	}
+
+	@GetMapping("/speech")
+	public String speechTest(Model model) throws IOException {
+		String path = Path.of(resourceLoader.getResource("classpath:static").getURI()).toString();
+		
+		Speech sp = new Speech();
+		String res = sp.speechTest(path);
+				
+		model.addAttribute("res", res);
+		return "speechRes";
+	}
+	
 }
 
 

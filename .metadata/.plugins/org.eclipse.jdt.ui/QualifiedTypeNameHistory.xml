@@ -7,4 +7,6 @@
     <fullyQualifiedTypeName name="com.sun.java.util.jar.pack.Package.File"/>
     <fullyQualifiedTypeName name="java.net.URL"/>
     <fullyQualifiedTypeName name="org.apache.catalina.connector.Response"/>
+    <fullyQualifiedTypeName name="com.test.api.common.Cfr2"/>
+    <fullyQualifiedTypeName name="com.test.api.common.Speech"/>
 </qualifiedTypeNameHistroy>
